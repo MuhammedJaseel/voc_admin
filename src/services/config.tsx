@@ -1,5 +1,6 @@
 import axios from "axios";
 import { showErrorToast } from "./toast";
+import { loadStatistics } from "./dashboard";
 
 export const APP_VERSION = "0.0.3";
 document.title = "VOC | Admin " + APP_VERSION;
@@ -62,12 +63,15 @@ ws.onopen = () => {};
 ws.onmessage = (event) => {
   switch (JSON.parse(event.data).type) {
     case "NEW_CONTACT":
+      loadStatistics();
       // loadContactUs();
       break;
     case "NEW_ENQUIRY":
+      loadStatistics();
       // loadEnquires();
       break;
     case "NEW_JOIN_TEAM":
+      loadStatistics();
       // loadJoinTeam();
       break;
     default:
