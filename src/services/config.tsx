@@ -1,7 +1,7 @@
 import axios from "axios";
 import { showErrorToast } from "./toast";
 
-export const APP_VERSION = "0.0.1";
+export const APP_VERSION = "0.0.2";
 document.title = "VOC | Admin " + APP_VERSION;
 
 var BASE_URL = import.meta.env.VITE_BASE_URL || "https://api.vocindia.net/";
