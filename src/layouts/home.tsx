@@ -63,7 +63,7 @@ export default function HomeLayout() {
   if (busy) return <LoadingPage />;
   return (
     <div className="flex w-full h-[100vh]">
-      <div className="min-w-[260px] bg-[#011022] p-6 border-r border-[#FFFFFF1A] flex flex-col justify-between items-center">
+      <div className="min-w-[260px] bg-[#011022] p-6 border-r border-[#FFFFFF1A] hidden md:flex flex-col justify-between items-center">
         <div className="w-full">
           <img src={Logo.app} className="h-25 my-[-16px] my-4 py-4" />
           <div className="bg-gradient-to-r from-[#101B2D] to-[#182842]" />
@@ -72,7 +72,12 @@ export default function HomeLayout() {
             _eachSide("Dashboard", "", IC.dashboard, IC.dashboard_),
             _eachSide("Contact Us", "contact-us", IC.brand, IC.brand_),
             _eachSide("Enquires", "enquires", IC.orders, IC.orders_),
-            _eachSide("Community Requests", "community-requests", IC.users, IC.users_),
+            _eachSide(
+              "Community Requests",
+              "community-requests",
+              IC.users,
+              IC.users_,
+            ),
             // _eachSide("Customers", "customers", IC.users, IC.users_),
           ])}
           {/* {_mainBar("PRODUCTS", [
@@ -123,6 +128,12 @@ export default function HomeLayout() {
         </div>
         <div className="h-[calc(100vh-88px)] overflow-auto bg-gradient-to-b from-[#101B2D] via-[#142442] to-[#101B2D]">
           <Outlet />
+        </div>
+      </div>
+      <div className="md:hidden fixed bottom-0 left-0 right-0 h-18 bg-[#010513] flex items-center justify-evenly text-[12px] text-[#A5A7AA]">
+        <div onClick={() => navigate("/")}>
+          {/* <img src={IC.} className="w-5 inline-block mb-[-2px]" /> */}
+          Home
         </div>
       </div>
     </div>

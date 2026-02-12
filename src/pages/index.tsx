@@ -35,15 +35,15 @@ export default function DashboardPage() {
     }
     return (
       <div
-        className="px-2 py-[2px] rounded-[12px] text-[13px] flex gap-1"
+        className="px-2 py-[2px] rounded-[12px] text-[10px] md:text-[13px] flex gap-1"
         style={
           up
             ? { color: "#00B676", background: "#00B6761A" }
             : { color: "#DF3A45", background: "#DF3A451A" }
         }
       >
-        {up && <img src={IC.graphUp} alt="GU" width="15" />}
-        {!up && <img src={IC.graphDown} alt="GD" width="15" />}
+        {up && <img src={IC.graphUp} alt="GU" className="w-3 md:w-[15px]" />}
+        {!up && <img src={IC.graphDown} alt="GD" className="w-3 md:w-[15px]" />}
         {hike.toFixed(1)}%
       </div>
     );
@@ -60,14 +60,14 @@ export default function DashboardPage() {
   ) => {
     return (
       <div
-        className="px-6 py-7 rounded-[20px] border border-[#0110224D] relative w-[240px] h-[240px] overflow-hidden bg-no-repeat cursor-pointer"
+        className="px-4 md:px-6 py-4 md:py-7 rounded-[10px] md:rounded-[20px] border border-[#0110224D] relative w-41 md:w-60 h-41 md:h-60 overflow-hidden bg-no-repeat cursor-pointer"
         style={{ backgroundImage: `url(${bg})` }}
         onClick={() => navigate(path)}
       >
-        <img src={ic} />
-        <div className="mt-4">{title}</div>
-        <div className="font-[ClashDisplay] text-[26px]">{value}</div>
-        <div className="flex items-center gap-1 mt-3 text-[#C7CCD2] text-[14px]">
+        <img src={ic} className="w-12 md:w-16" />
+        <div className="mt-3 md:mt-4 text-xs md:text-base">{title}</div>
+        <div className="font-[ClashDisplay] text-[20px] md:text-[26px]">{value}</div>
+        <div className="flex items-center gap-1 mt-1 md:mt-3 text-[#C7CCD2] text-[11px] md:text-[14px]">
           {_getHike(last, prev)}
           {last}&nbsp;in 24h
         </div>
@@ -108,8 +108,8 @@ export default function DashboardPage() {
   // };
 
   return (
-    <div className="p-8 flex justify-center">
-      <div className="max-w-[1100px] p-8 flex flex-wrap justify-center gap-5">
+    <div className="py-6 md:py-8 px-3 md:px-8 flex justify-center">
+      <div className="w-screen max-w-[1100px] md:p-8 flex flex-wrap justify-center gap-3 md:gap-5">
         {_each1(
           "Contact Enquires",
           (data?.contact?.unattend || "0") +
